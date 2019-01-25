@@ -22,6 +22,7 @@ def get_songs_link(url):
     driver.switch_to.frame('g_iframe')
 
     # 歌单信息
+    link_list = []
     songsheets = driver.find_elements_by_xpath('//tbody/tr/td[2]/div/div/div/span/a')
     for song in songsheets:
         link = song.get_attribute('href')
@@ -70,7 +71,7 @@ if __name__ == '__main__':
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument(UserAgent().random)
-    chrome_options.add_argument(f'--proxy-server=http://36.56.146.217:4216')
+    chrome_options.add_argument(f'--proxy-server=http://180.95.169.61:3012')
 
     # 修改selenium页面加载策略
     # desired_capabilities = DesiredCapabilities.CHROME
@@ -80,9 +81,8 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(executable_path='driver/chromedriver.exe', chrome_options=chrome_options)
 
     songsheet_num = count = 1
-    link_list = []
     songs_list = []
-    datas = pd.read_csv('songsheets_rank/songsheets_us.csv').iloc[0:50, :]
+    datas = pd.read_csv('songsheets_rank/songsheets_us.csv').iloc[50:100, :]
 
     for link in datas['link']:
         get_songs_link(link.strip())
@@ -93,5 +93,5 @@ if __name__ == '__main__':
     songsheets_df = pd.DataFrame(songs_list, columns=['name', 'singer', 'link', 'comments_num'])
     if not os.path.isdir('output'):
         os.mkdir('output')
-    songsheets_df.sort_values('comments_num', ascending=False).to_csv(f'output/songs_rank_01.csv', sep=',', na_rep='NA')
+    songsheets_df.sort_values('comments_num', ascending=False).to_csv(f'output/songs_rank_02.csv', sep=',', na_rep='NA')
 
