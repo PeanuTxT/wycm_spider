@@ -1,4 +1,4 @@
-| 1 | name | singer | link | comments_num |
+| rank | name | singer | link | comments_num |
 | -- | -- | -- | -- |
 | 1 | Look What You Made Me Do | Taylor Swift | https://music.163.com/song?id=501133611 | 674565 |
 | 2 | Fade | Alan Walker | https://music.163.com/song?id=29947420 | 641214 |
