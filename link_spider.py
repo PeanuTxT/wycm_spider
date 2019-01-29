@@ -46,7 +46,7 @@ if __name__ == '__main__':
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument(UserAgent().random)
-    chrome_options.add_argument(f'--proxy-server=http://113.231.199.122:4237')
+    chrome_options.add_argument(f'--proxy-server=http://114.217.111.186:2589')
 
     # 修改selenium页面加载策略
     desired_capabilities = DesiredCapabilities.CHROME
@@ -57,10 +57,10 @@ if __name__ == '__main__':
 
     page = count = 1
     link_txt = ''
-    get_songsheet_url('https://music.163.com/#/discover/playlist/?cat=%E6%AC%A7%E7%BE%8E')
+    get_songsheet_url('https://music.163.com/#/discover/playlist/?cat=%E6%97%A5%E8%AF%AD')
 
     # selenium 关闭无页面浏览器
     driver.close()
 
-    with open('link_list1.txt', 'w') as f:
+    with open('link_list_ja.txt', 'w') as f:
         f.write(link_txt)

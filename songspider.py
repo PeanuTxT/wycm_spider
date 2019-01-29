@@ -71,7 +71,7 @@ if __name__ == '__main__':
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument(UserAgent().random)
-    chrome_options.add_argument(f'--proxy-server=http://180.95.169.61:3012')
+    chrome_options.add_argument(f'--proxy-server=http://59.53.42.190:4249')
 
     # 修改selenium页面加载策略
     # desired_capabilities = DesiredCapabilities.CHROME
@@ -82,7 +82,7 @@ if __name__ == '__main__':
 
     songsheet_num = count = 1
     songs_list = []
-    datas = pd.read_csv('songsheets_rank/songsheets_us.csv').iloc[50:100, :]
+    datas = pd.read_csv('songsheets_rank/songsheets_ja.csv').iloc[:50, :]
 
     for link in datas['link']:
         get_songs_link(link.strip())
@@ -93,5 +93,5 @@ if __name__ == '__main__':
     songsheets_df = pd.DataFrame(songs_list, columns=['name', 'singer', 'link', 'comments_num'])
     if not os.path.isdir('output'):
         os.mkdir('output')
-    songsheets_df.sort_values('comments_num', ascending=False).to_csv(f'output/songs_rank_02.csv', sep=',', na_rep='NA')
+    songsheets_df.sort_values('comments_num', ascending=False).to_csv(f'output/songs_rank_01.csv', sep=',', na_rep='NA')
 
