@@ -71,16 +71,11 @@ if __name__ == '__main__':
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument(UserAgent().random)
-<<<<<<< HEAD
-    chrome_options.add_argument(f'--proxy-server=http://59.53.42.190:4249')
-=======
     chrome_options.add_argument(f'--proxy-server=http://111.75.155.74:4235')
->>>>>>> 85965c2419321cf66433f864452e4122f65c1fb7
 
     # 修改selenium页面加载策略
     # desired_capabilities = DesiredCapabilities.CHROME
     # desired_capabilities["pageLoadStrategy"] = "none"
-<<<<<<< HEAD
 
     # selenium 启动无页面浏览器
     driver = webdriver.Chrome(executable_path='driver/chromedriver.exe', chrome_options=chrome_options)
@@ -100,7 +95,6 @@ if __name__ == '__main__':
         os.mkdir('output')
     songsheets_df.sort_values('comments_num', ascending=False).to_csv(f'output/songs_rank_01.csv', sep=',', na_rep='NA')
 
-=======
     left = 100
     right = 150
     for i in range(4):
@@ -123,4 +117,3 @@ if __name__ == '__main__':
         songsheets_df.sort_values('comments_num', ascending=False).to_csv(f'output/songs_rank_0{i+3}.csv', sep=',', na_rep='NA')
         left += 50
         right +=50
->>>>>>> 85965c2419321cf66433f864452e4122f65c1fb7
